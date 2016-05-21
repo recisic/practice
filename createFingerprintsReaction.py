@@ -1,17 +1,12 @@
 # -*- coding: utf-8 -*-
-# <nbformat>3.0</nbformat>
-
-# <codecell>
 
 from rdkit import Chem
 from rdkit.Chem import AllChem,rdChemReactions
-import cPickle,gzip
+import pickle,gzip
 from collections import defaultdict
 import random
 from rdkit.Chem import Descriptors
 from rdkit import DataStructs
-
-# <codecell>
 
 def create_transformation_FP(rxn, fptype):
     if rdChemReactions.HasReactionAtomMapping(rxn):
@@ -29,16 +24,15 @@ def create_transformation_FP(rxn, fptype):
             elif fptype == AllChem.FingerprintType.TopologicalTorsion:
                 fp = AllChem.GetTopologicalTorsionFingerprint(mol=mol)
             else:
-                print "Unsupported fp type"
+                print("Unsupported fp type")
         except:
-            print "cannot build reactant fp"
+            print("cannot build reactant fp")
         if rfp is None:
             rfp = fp
         else:
             rfp += fp
     return rfp
 
-# <codecell>
 
 def create_agent_feature_FP(rxn):    
     if rdChemReactions.HasReactionAtomMapping(rxn):
@@ -60,10 +54,9 @@ def create_agent_feature_FP(rxn):
             agent_feature_Fp[7] += Descriptors.NumHAcceptors(mol)
             agent_feature_Fp[8] += Descriptors.NumHDonors(mol)
         except:
-            print "Cannot build agent Fp\n"
+            print("Cannot build agent Fp\n")
     return agent_feature_Fp
 
-# <codecell>
 
 def create_agent_morgan2_FP(rxn):    
     if rdChemReactions.HasReactionAtomMapping(rxn):
@@ -80,10 +73,9 @@ def create_agent_morgan2_FP(rxn):
             elif mg2 is not None:
                 morgan2 += mg2
         except:
-            print "Cannot build agent Fp\n"
+            print("Cannot build agent Fp\n")
     return morgan2
 
-# <codecell>
 
 agent_dict_list = ['CCN(CC)CC', '[BH3-]C#N', '[Na+]', 'O=S(Cl)Cl', 'O=S(=O)(O)O', 'CN1CCCC1=O', 'C1COCCO1', 'c1cc[nH+]cc1', 'c1ccncc1', 'CCN(C(C)C)C(C)C',\
  'CCO', 'ClC(Cl)(Cl)Cl', 'CC(C)(C)[O-]', 'O=C([O-])O', 'COCCOC', 'BrB(Br)Br', 'CC(=O)O[BH-](OC(C)=O)OC(C)=O', '[NH4+]', '[F-]', 'O=C([O-])[O-]',\
