@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+	<title>Predictor!</title>
+	<link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" />
+</head>
+<body>
+	<h1>Predictor</h1>
+	<div class="resizable" style="display: inline-block;">
+		<iframe src="https://marvinjs-demo.chemaxon.com/latest/demo.html" id="sketch" class="sketcher-frame"></iframe>
+	</div>
+	<div>
+		<form action="." method="POST" accept-charset="utf-8">
+			Reaction type of
+			{{( form.smi )}}
+			<input type=submit value=is>
+			<strong>
+				{% if result != None %}
+				{{result}}
+				{% endif %}
+			</strong>
+		</form>
+	</div>
+</body>
+</html>

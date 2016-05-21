@@ -1,0 +1,45 @@
+html{
+	font-family: "Titillium", Cambria, Helvetica, Arial, Geneva, sans-serif !important;
+	padding: 20px 5% 20px 5% !important;
+}
+
+h1, h1 a, h2 a{
+		font-family: "Titillium", Cambria, Helvetica, Arial, Geneva, sans-serif !important;
+}
+
+.version {
+	font-family: sans-serif;
+	font-size: smaller;
+	float: right;
+}
+
+iframe{
+	border:none;
+	padding: 0px;
+	margin: 0px;
+    
+	box-shadow: 2px 2px 3px #888;
+}
+
+.sketcher-frame {
+	margin: -2px;
+	resize: none;
+	min-width: 800px;
+	min-height: 370px;
+	height: 100%;
+	width: 100%;
+	overflow: hidden;
+}
+
+.resizable{
+	border: none;
+	padding: 0px 8px 8px 0px;
+	border: 0px;
+	resize: both;
+	width: 960px;
+	height: 510px;
+	min-width: 370px;
+	min-height: 370px;
+	overflow: auto;
+	background-color: transparent;
+}
