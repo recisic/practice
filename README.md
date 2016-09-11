@@ -1,3 +1,3 @@
-고등학교 졸업논문
+RDKit practice
 
-![예시3](https://raw.githubusercontent.com/recycli/thesis/master/ex3.png)
+![예시](https://raw.githubusercontent.com/recycli/thesis/master/ex3.png)
